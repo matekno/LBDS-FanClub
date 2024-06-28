@@ -1,13 +1,12 @@
 import { Controller, Param, Post, UseGuards } from '@nestjs/common';
 import { BorrachoService } from './borracho.service';
 import { JwtAuthGuard } from 'src/auth/guards/jwt.guard';
-import { UserService } from 'src/user/user.service';
 import { IsOwnerGuard } from 'src/auth/guards/isOwner.guard';
 
 
 @Controller('borracho')
 export class BorrachoController {
-    constructor(private borrachoService: BorrachoService, private userService: UserService) { }
+    constructor(private borrachoService: BorrachoService) { }
 
 
     @UseGuards(JwtAuthGuard, IsOwnerGuard)
