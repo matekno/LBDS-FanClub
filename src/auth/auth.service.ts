@@ -11,6 +11,8 @@ export class AuthService {
         private jwtService: JwtService
     ) { }
 
+    // TODO: Habria que hacer una sobrecarga del metodo decode para que me devuelva bien tipado el jwt decodificado
+
     async login(dto: LoginDto) {
         const user = await this.validateUser(dto);
         const payload = {
@@ -45,5 +47,15 @@ export class AuthService {
         }
         throw new UnauthorizedException('Invalid credentials');
     }
+
+    // async getUserFromToken(token: string) {
+    //     try {
+    //         const decoded = this.jwtService.decode(token);
+    //         const user = await this.userService.findByID(decoded.id);
+    //         return user
+    //     } catch (error) {
+    //         throw new UnauthorizedException('Invalid token');
+    //     }
+    // }
 
 }
