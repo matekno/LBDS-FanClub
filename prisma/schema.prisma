@@ -19,7 +19,7 @@ model user {
   EMAIL      String   @unique
   PASSWORD   String
   ROLE       String // VALIDAR EN NEST
-  LAST_PAYED DateTime
+  LAST_PAYED DateTime?
   MATCHES    match[]  @relation("UserMatches")
 }
 
