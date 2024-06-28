@@ -12,6 +12,6 @@ export class BorrachoController {
     @UseGuards(JwtAuthGuard, IsOwnerGuard)
     @Post("pay/:id")
     async pay(@Param('id') id: number){
-        return await this.borrachoService.pay(+id); // TODO: como puedo hacer algun guard que sea tipo @IsOwner() o similar para que solo el usuario pueda pagar su propia deuda?
+        return await this.borrachoService.pay(+id);
     }
 }

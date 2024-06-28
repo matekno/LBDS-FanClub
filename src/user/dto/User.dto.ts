@@ -1,4 +1,4 @@
-import { IsEmail, IsNotEmpty, IsString, Matches, IsOptional, IsDateString } from 'class-validator';
+import { IsEmail, IsNotEmpty, IsString } from 'class-validator';
 
 export class CreateUserDto {
     @IsNotEmpty()
@@ -12,7 +12,7 @@ export class CreateUserDto {
     PASSWORD: string;
 
     @IsNotEmpty()
-    ROLE: ROLES; // TODO: No anda esto me parece
+    ROLE: ROLES;
 }
 
 enum ROLES {
