@@ -13,9 +13,21 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model User {
-  id Int @id @default(autoincrement())
-  email String @unique
-  name String?
-  password String
+model user {
+  ID         Int      @id @default(autoincrement())
+  NAME       String
+  EMAIL      String   @unique
+  PASSWORD   String
+  ROLE       String // VALIDAR EN NEST
+  LAST_PAYED DateTime
+  MATCHES    match[]  @relation("UserMatches")
+}
+
+model match {
+  ID            Int      @id @default(autoincrement())
+  DATE          DateTime
+  OPPONENT      String
+  FIELD         String // de visitante o de local. fumando porro tomando vino
+  MAX_BORRACHOS Int
+  USERS         user[]   @relation("UserMatches")
 }
